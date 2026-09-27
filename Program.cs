@@ -34,6 +34,25 @@ internal class Program
         //change something we don't have to do it through the entire code
         #endregion
         #endregion
+        //-----------------------------------------------//
+        #region PART 2
+
+        #region ans 1
+        DeliveryAddress address = new DeliveryAddress("cairo","9th" ,17);
+        DeliveryAddress address02 = address;
+
+        address02 = new DeliveryAddress("giza", "foaad", 271);
+
+        Console.WriteLine(address02.GetfullAdress());
+        Console.WriteLine("-------------");
+        Console.WriteLine(address.GetfullAdress());
+        #endregion
+        Console.WriteLine("________________________________________");
+        #region ans 2
+
+        #endregion
+
+        #endregion
     }
 }
 
