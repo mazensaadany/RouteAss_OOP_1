@@ -2,9 +2,9 @@
 
 public struct DeliveryAddress
 {
-    private string City;
-    private string Street;
-    private int BuildingNumber;
+    private string city;
+    private string street;
+    private int buildingNumber;
 
     public DeliveryAddress(string city,string street,int buildNum)
     {
@@ -18,4 +18,10 @@ public struct DeliveryAddress
         return $"City: {City}| Street: {Street}| Building: {BuildingNumber}";
     }
 
+
+    public string City { get; set; }
+
+    public string Street { get; set; }
+
+    public int BuildingNumber { get; set; }
 }

@@ -1,4 +1,6 @@
 ﻿namespace RouteAss_OOP_1;
+using RouteAss_OOP_1;
+
 internal class Program
 {
     static void Main(string[] args)
@@ -38,7 +40,7 @@ internal class Program
         #region PART 2
 
         #region ans 1
-        DeliveryAddress address = new DeliveryAddress("cairo","9th" ,17);
+        DeliveryAddress address = new DeliveryAddress("cairo", "9th", 17);
         DeliveryAddress address02 = address;
 
         address02 = new DeliveryAddress("giza", "foaad", 271);
@@ -49,7 +51,76 @@ internal class Program
         #endregion
         Console.WriteLine("________________________________________");
         #region ans 2
+        //A
+        DeliveryCenter deliveryCenter = new DeliveryCenter();
+        //B
 
+        for (int i = 0; i < 3; i++)
+        {
+            Shipment shipment = new Shipment();
+            DeliveryAddress addr = new DeliveryAddress();
+
+            Console.WriteLine($"enter shipment {i + 1} details:");
+
+            Console.WriteLine("Tracking Code:");
+            shipment.TrackingCode = Console.ReadLine();
+            Console.Write($"description{i + 1}:");
+            shipment.Description = Console.ReadLine();
+            Console.Write($"weight{i + 1}:");
+            shipment.Weight = Console.Read();
+            Console.WriteLine(" ");
+            Console.Write($"delivery fee{i + 1}:");
+            shipment.DeliveryFee = Console.Read();
+            Console.WriteLine(" ");
+
+            Console.Write($"City{i + 1}:");
+            addr.City = Console.ReadLine();
+            Console.Write($"street{i + 1}:");
+            addr.Street = Console.ReadLine();
+            Console.Write($"Building{i + 1}:");
+            addr.BuildingNumber = Console.Read();
+            shipment.Destination = addr;
+
+            deliveryCenter.AddShipment(shipment);
+
+            Console.WriteLine("Shipment added successfully");
+        }
+        #endregion
+        Console.WriteLine("________________________________________");
+        #region ans3
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine($"tracking code{i + 1}:{deliveryCenter[i].TrackingCode}");
+            Console.WriteLine($"description{i + 1}:{deliveryCenter[i].Description}");
+            Console.WriteLine($"weight{i + 1}:{deliveryCenter[i].Weight}");
+            Console.WriteLine($"fee{i + 1}:{deliveryCenter[i].DeliveryFee}");
+            Console.WriteLine($"city{i + 1}:{deliveryCenter[i].Destination.City}");
+            Console.WriteLine($"street{i + 1}:{deliveryCenter[i].Destination.Street}");
+            Console.WriteLine($"building{i + 1}:{deliveryCenter[i].Destination.BuildingNumber}");
+        }
+
+        #endregion
+        Console.WriteLine("________________________________________");
+        #region ans 4
+        Console.WriteLine("enter tracking code");
+        string code = Console.ReadLine();
+
+        Shipment shipment1 = deliveryCenter[code];
+        if (shipment1.TrackingCode != null)
+        {
+            shipment1.PrintShipment();
+        }
+        else
+        { Console.WriteLine("Shipment not found"); }
+        #endregion
+        Console.WriteLine("________________________________________");
+        #region ans 5
+        DeliveryAddress add01 = new DeliveryAddress("alex","1919",501);
+        DeliveryAddress add02 = add01;
+
+        add02.City = "noba";
+        Console.WriteLine($"City 1 is:{add01.City}");
+        Console.WriteLine($"City 1 is:{add02.City}");
         #endregion
 
         #endregion

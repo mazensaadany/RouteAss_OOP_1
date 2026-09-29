@@ -2,6 +2,7 @@
 
 public struct Shipment
 {
+    #region constructors
     public Shipment(string track)
     {
         TrackingCode = track;
@@ -19,12 +20,16 @@ public struct Shipment
         DeliveryFee = fee;
         Destination= Dest;
     }
+    #endregion
 
+    #region fields
     private string trackingCode;
     private string description;
     private int weight;
     private int deliveryFee;
+    #endregion
 
+    #region properties
     public DeliveryAddress Destination { get; set; }
 
     public string TrackingCode
@@ -34,7 +39,7 @@ public struct Shipment
             return trackingCode;
         }
 
-        private set
+        set
         {
             if (value != null && value != "" && value != " ")
             {
@@ -94,7 +99,9 @@ public struct Shipment
     {
         get { return DeliveryFee+(Weight*5); } 
     }
+    #endregion
 
+    #region methods
     public int UpdateDeliveryFee(int newFee)
     {
         if (newFee > 0)
@@ -114,5 +121,6 @@ public struct Shipment
         Console.WriteLine($"Delivery Fee : {DeliveryFee}");
         Console.WriteLine($"Estimated Cost : {EstimatedCost}");
     }
+    #endregion
 }
 
